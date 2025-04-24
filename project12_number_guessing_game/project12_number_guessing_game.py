@@ -2,35 +2,20 @@ import random
 import number_guessing_game_art as art
 print(art.logo)
 
-def difficultGame(number):
+def guessing(number,chance):
     
-    print("You are given 10 chances for guessing the number \n")
-    for i in range(1,11):
+    print("You are given ",chance," chances for guessing the number \n")
+    for i in range(1,chance+1):
         print("Chance ",i)   
-        guess = int(input("\nGuess a number : "))
+        guess = int(input("Guess a number : "))
         if guess == number :
             print("\nYour guess is correct!\nYou WIN")
             return
         elif guess> number:
-            print("Too High.\n")
+            print("Too High.")
         else:
-            print("Too Low.\n")
+            print("Too Low.")
     print("\nYou Lose , The number is ",number)
-def easyGame(number):
-    
-    print("You are given 5 chances for guessing the number \n")
-    for i in range(1,6):
-        print("Chance ",i)   
-        guess = int(input("\nGuess a number : "))
-        if guess == number :
-            print("\nYour guess is correct!\nYou WIN")
-            return
-        elif guess> number:
-            print("Too High.\n")
-        else:
-            print("Too Low.\n")
-    print("\nYou Lose , The number is ",number)
-
         
 def game():
     print("I'm thinking of a number between 1 to 100.")
@@ -39,10 +24,10 @@ def game():
         print("Choose the difficulty level hard or easy! : ")
         difficulty = input().lower()
         if difficulty == "easy":
-            easyGame(number)
+            guessing(number,5)
             return
         elif difficulty == "hard":
-            difficultGame(number)
+            guessing(number,10)
             return
         else :
             print("Invalid Choice")
